@@ -69,6 +69,9 @@ textarea.addEventListener("keyup", () => {
 
   // Is character limit reached when updating textarea
   isCharLimitReached();
+
+  // Display letter densities
+  
 });
 
 let excludeSpacesActive = false;
