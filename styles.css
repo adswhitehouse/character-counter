@@ -236,6 +236,16 @@ textarea::placeholder {
   color: var(--neutral-5);
 }
 
+textarea:hover {
+  background-color: var(--neutral-3);
+}
+
+textarea:focus {
+  background-color: var(--neutral-3);
+  border: 2px solid var(--purple-1);
+  box-shadow: 0 0 10px var(--purple-1);
+}
+
 .char-limit-border {
   border: 2px solid var(--orange-2);
 }
