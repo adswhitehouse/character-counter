@@ -176,7 +176,7 @@ textarea:not([rows]) {
 
 /* Body */
 body {
-  padding: 2rem 15vw 0;
+  padding: 2rem 15vw 4rem;
 }
 
 /* Header */
@@ -201,7 +201,7 @@ header button {
 /* H1 */
 h1 {
   max-width: 32.5rem;
-  margin-inline: auto;
+  margin: 3rem auto;
   text-align: center;
 }
 
@@ -215,6 +215,7 @@ textarea {
   height: 12.5rem;
   outline: none;
   overflow: hidden;
+  margin-bottom: 1rem;
 }
 
 textarea::placeholder {
@@ -252,6 +253,7 @@ textarea::placeholder {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
+  margin-block: 3rem 1.5rem;
 }
 
 .count div {
@@ -271,6 +273,11 @@ textarea::placeholder {
   inset: 0;
   left: 65%;
   z-index: -1;
+}
+
+/* Letter Density */
+.letter-density h2 {
+  margin-bottom: 1.25rem;
 }
 
 
