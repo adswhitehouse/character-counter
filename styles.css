@@ -1,0 +1,175 @@
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* Variables */
+:root {
+  /* Font */
+  --ff-primary: "DM Sans", sans-serif;
+
+  /* Colors */
+  --neutral-1: #12131a;
+  --neutral-2: #21222c;
+  --neutral-3: #2a2b37;
+  --neutral-4: #404254;
+  --neutral-5: #e4e4ef;
+  --neutral-6: #f2f2f7;
+  --white: #fff;
+  --purple-1: #c27cfb;
+  --purple-2: #d3a0fa;
+  --yellow: #ff9f00;
+  --orange-1: #da3701;
+  --orange-2: #fe8159;
+
+  /* Font Sizes */
+  --fs-1: 4rem;
+  --fs-1-mobile: 2.5rem;
+  --fs-2: 1.5rem;
+  --fs-3: 1.25rem;
+  --fs-4: 1rem;
+
+  /* Font Weights */
+  --fw-1: 700;
+  --fw-2: 600;
+  --fw-3: 400;
+
+  /* Line Heights */
+  --lh-1: 140%;
+  --lh-2: 130%;
+  --lh-3: 100%;
+
+  /* Letter Spacing */
+  --ls-1: -1px;
+  --ls-2: -0.6px;
+}
+
+/* Utility Classes */
+/* Font */
+.ff-primary {
+  font-family: var(--ff-primary);
+}
+
+/* Colors */
+.neutral-1 {
+  color: var(--neutral-1);
+}
+
+.neutral-5 {
+  color: var(--neutral-5);
+}
+
+.neutral-6 {
+  color: var(--neutral-6);
+}
+
+.orange-2 {
+  color: var(--orange-2);
+}
+
+/* Background Colors */
+.neutral-1-bg {
+  background-color: var(--neutral-1);
+}
+
+.neutral-2-bg {
+  background-color: var(--neutral-2);
+}
+
+.purple-2-bg {
+  background-color: var(--purple-2);
+}
+
+.yellow-bg {
+  background-color: var(--yellow);
+}
+
+.orange-2-bg {
+  background-color: var(--orange-2);
+}
+
+/* Text Presets */
+.tp-1 {
+  font-size: var(--fs-1);
+  font-weight: var(--fw-1);
+  line-height: var(--lh-3);
+  letter-spacing: var(--ls-1);
+}
+
+.tp-2 {
+  font-size: var(--fs-2);
+  font-weight: var(--fw-2);
+  line-height: var(--lh-2);
+  letter-spacing: var(--ls-1);
+}
+
+.tp-3 {
+  font-size: var(--fs-3);
+  font-weight: var(--fw-3);
+  line-height: var(--lh-1);
+  letter-spacing: var(--ls-2);
+}
+
+.tp-4 {
+  font-size: var(--fs-4);
+  font-weight: var(--fw-3);
+  line-height: var(--lh-2);
+  letter-spacing: var(--ls-2);
+}
