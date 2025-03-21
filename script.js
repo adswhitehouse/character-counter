@@ -99,10 +99,13 @@ charLimitBtn.addEventListener("click", () => {
     charLimitActive = true;
     charLimitBtn.classList.add("setting-btn-active");
     charLimit.classList.add("char-limit-active");
+    charLimit.value = "300";
   } else {
     charLimitActive = false;
     charLimitBtn.classList.remove("setting-btn-active");
     charLimit.classList.remove("char-limit-active");
+    exceededLimit.classList.remove("exceeded-limit-active");
+    textarea.classList.remove("char-limit-border");
     charLimit.value = "";
   }
 });
