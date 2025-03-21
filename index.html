@@ -34,6 +34,10 @@
       ></textarea>
       <!-- Settings -->
       <section class="settings">
+        <p class="tp-4 orange-2 exceeded-limit jsExceededLimit">
+          <img src="./images/icon-info.svg" alt="Info icon" />Limit reached!
+          Your text exceeds <span class="jsLimit"></span> characters.
+        </p>
         <div class="setting">
           <button class="setting-btn jsExcludeSpaces">
             <img
@@ -44,13 +48,14 @@
           <p class="tp-4 neutral-6">Exclude Spaces</p>
         </div>
         <div class="setting">
-          <button class="setting-btn">
+          <button class="setting-btn jsCharLimitBtn">
             <img
               src="./images/icon-check.svg"
               alt="Set character limit is checked"
             />
           </button>
           <p class="tp-4 neutral-6">Set Character Limit</p>
+          <input class="tp-4 white char-limit jsCharLimit" type="number"/>
         </div>
         <p class="tp-4 neutral-6">
           Approx reading time: <span class="jsReadingTime">0 minutes</span>

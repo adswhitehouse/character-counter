@@ -6,10 +6,30 @@ let textarea = document.querySelector("textarea");
 let excludeSpaces = document.querySelector(".jsExcludeSpaces");
 let totalCharacters = document.querySelector(".jsTotalCharacters");
 let readingTime = document.querySelector(".jsReadingTime");
+let charLimit = document.querySelector(".jsCharLimit");
+let charLimitBtn = document.querySelector(".jsCharLimitBtn");
+let limit = document.querySelector(".jsLimit");
+let exceededLimit = document.querySelector(".jsExceededLimit");
 
 // Displays relative count numbers
 function displayCounts(unit, count) {
   count.textContent = unit < 10 ? `0${unit}` : unit;
+}
+
+// Checks if character limit is reached
+function isCharLimitReached() {
+  let text = textarea.value;
+  let charLimitNumber = Number(charLimit.value);
+  if (
+    charLimit.classList.contains("char-limit-active") &&
+    text.length > charLimitNumber &&
+    charLimitNumber > 0
+  ) {
+    exceededLimit.classList.add("exceeded-limit-active");
+    limit.textContent = charLimitNumber;
+  } else {
+    exceededLimit.classList.remove("exceeded-limit-active");
+  }
 }
 
 // On textarea keyup...
@@ -22,6 +42,9 @@ textarea.addEventListener("keyup", () => {
   // Display word count
   let words = text.trim().split(/\s+/).length;
   displayCounts(words, wordCount);
+  if (text.length === 0) {
+    wordCount.textContent = "00";
+  }
 
   // Display Sentence count
   let sentences = text
@@ -41,6 +64,9 @@ textarea.addEventListener("keyup", () => {
   } else {
     readingTime.textContent = `${minutesReading} minutes`;
   }
+
+  // Is character limit reached when updating textarea
+  isCharLimitReached();
 });
 
 let excludeSpacesActive = false;
@@ -62,4 +88,24 @@ excludeSpaces.addEventListener("click", () => {
     totalCharacters.textContent = "Total Characters";
     displayCounts(text.length, characterCount);
   }
+});
+
+//
+let charLimitActive = false;
+charLimitBtn.addEventListener("click", () => {
+  if (!charLimitActive) {
+    charLimitActive = true;
+    charLimitBtn.classList.add("setting-btn-active");
+    charLimit.classList.add("char-limit-active");
+  } else {
+    charLimitActive = false;
+    charLimitBtn.classList.remove("setting-btn-active");
+    charLimit.classList.remove("char-limit-active");
+    charLimit.value = "";
+  }
+});
+
+// Is character limit reached when updating character limit
+charLimit.addEventListener("keyup", () => {
+  isCharLimitReached();
 });

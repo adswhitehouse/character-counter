@@ -108,6 +108,10 @@ textarea:not([rows]) {
 }
 
 /* Colors */
+.white {
+  color: var(--white);
+}
+
 .neutral-1 {
   color: var(--neutral-1);
 }
@@ -225,7 +229,7 @@ textarea {
   height: 12.5rem;
   outline: none;
   overflow: hidden;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 textarea::placeholder {
@@ -236,6 +240,7 @@ textarea::placeholder {
 .settings {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .settings p {
@@ -261,6 +266,42 @@ textarea::placeholder {
 .setting-btn-active {
   background-color: var(--purple-2);
   border: 2px solid var(--purple-2);
+}
+
+.char-limit {
+  border: 2px solid var(--neutral-4);
+  outline: none;
+  background: transparent;
+  width: 4rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  visibility: hidden;
+  -moz-appearance: textfield;
+}
+
+.char-limit::-webkit-outer-spin-button,
+.char-limit::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.char-limit-active {
+  visibility: visible;
+}
+
+.exceeded-limit {
+  position: absolute;
+  gap: 0.2rem;
+  top: -3rem;
+  display: none;
+}
+
+.exceeded-limit-active {
+  display: flex;
+}
+
+.exceeded-limit img {
+  margin-right: 0.25rem;
 }
 
 /* Count */
