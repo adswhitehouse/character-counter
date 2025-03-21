@@ -173,3 +173,104 @@ textarea:not([rows]) {
   line-height: var(--lh-2);
   letter-spacing: var(--ls-2);
 }
+
+/* Body */
+body {
+  padding: 2rem 15vw 0;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header button {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+/* Main */
+/* H1 */
+h1 {
+  max-width: 32.5rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* Textarea */
+textarea {
+  width: 100%;
+  resize: none;
+  border: 2px solid var(--neutral-3);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  height: 12.5rem;
+  outline: none;
+  overflow: hidden;
+}
+
+textarea::placeholder {
+  color: var(--neutral-5);
+}
+
+/* Settings */
+.settings {
+  display: flex;
+  align-items: center;
+}
+
+.settings p {
+  margin-left: auto;
+}
+
+.setting {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-right: 1.5rem;
+}
+
+.setting button {
+  width: 1rem;
+  height: 1rem;
+  background-color: transparent;
+  border: 2px solid var(--neutral-5);
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+/* Count */
+.count {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.count div {
+  padding: 1.5rem 1rem;
+  border-radius: 0.75rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.count div p {
+  margin-top: 0.5rem;
+}
+
+.count div img {
+  position: absolute;
+  inset: 0;
+  left: 65%;
+  z-index: -1;
+}
+
+

@@ -13,11 +13,73 @@
       rel="stylesheet"
     />
   </head>
-  <body class="ff-primary ">
+  <body class="ff-primary neutral-1-bg">
     <!-- Header -->
-     <header>
-
-     </header>
+    <header>
+      <a aria-label="Go to homepage" href="#"
+        ><img src="./images/logo-dark-theme.svg" alt="Company logo"
+      /></a>
+      <button class="jsTheme neutral-2-bg">
+        <img src="./images/icon-sun.svg" alt="" />
+      </button>
+    </header>
+    <!-- Main -->
+    <main>
+      <!-- Heading -->
+      <h1 class="tp-1 neutral-6">Analyze your text in real-time.</h1>
+      <!-- Textarea -->
+      <textarea
+        class="tp-3 neutral-5 neutral-2-bg jsTextarea"
+        placeholder="Start typing here... (or paste your text)"
+      ></textarea>
+      <!-- Settings -->
+      <section class="settings">
+        <div class="setting">
+          <button></button>
+          <p class="tp-4 neutral-6">Exclude Spaces</p>
+        </div>
+        <div class="setting">
+          <button></button>
+          <p class="tp-4 neutral-6">Set Character Limit</p>
+        </div>
+        <p class="tp-4 neutral-6">
+          Approx reading time: <span class="jsReadingTime">0</span> minutes
+        </p>
+      </section>
+      <!-- Counters -->
+      <section class="count">
+        <!-- Character Count -->
+        <div class="purple-2-bg neutral-1">
+          <span class="tp-1 jsCharacterCounter">00</span>
+          <p class="tp-3">Total Characters</p>
+          <img
+            src="./images/pattern-character-count.svg"
+            alt=""
+            aria-hidden="true"
+          />
+        </div>
+        <!-- Word Count -->
+        <div class="yellow-bg neutral-1">
+          <span class="tp-1 jsCharacterCounter">00</span>
+          <p class="tp-3">Word Count</p>
+          <img
+            src="./images/pattern-word-count.svg"
+            alt=""
+            aria-hidden="true"
+          />
+        </div>
+        <!-- Sentence Count -->
+        <div class="orange-2-bg neutral-1">
+          <span class="tp-1 jsCharacterCounter">00</span>
+          <p class="tp-3">Sentence Count</p>
+          <img
+            src="./images/pattern-sentence-count.svg"
+            alt=""
+            aria-hidden="true"
+          />
+        </div>
+      </section>
+    </main>
     <!-- JS -->
     <script src="./script.js"></script>
   </body>
