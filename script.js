@@ -27,8 +27,10 @@ function isCharLimitReached() {
   ) {
     exceededLimit.classList.add("exceeded-limit-active");
     limit.textContent = charLimitNumber;
+    textarea.classList.add("char-limit-border");
   } else {
     exceededLimit.classList.remove("exceeded-limit-active");
+    textarea.classList.remove("char-limit-border");
   }
 }
 
@@ -90,7 +92,7 @@ excludeSpaces.addEventListener("click", () => {
   }
 });
 
-//
+// Displays character limit
 let charLimitActive = false;
 charLimitBtn.addEventListener("click", () => {
   if (!charLimitActive) {

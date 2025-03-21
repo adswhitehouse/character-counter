@@ -236,6 +236,10 @@ textarea::placeholder {
   color: var(--neutral-5);
 }
 
+.char-limit-border {
+  border: 2px solid var(--orange-2);
+}
+
 /* Settings */
 .settings {
   display: flex;
