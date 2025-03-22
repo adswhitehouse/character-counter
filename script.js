@@ -143,6 +143,7 @@ textarea.addEventListener("keyup", () => {
       densityNumber.classList.add("density-number", "tp-4", "neutral-6");
       densityPercent.classList.add("density-number", "tp-4", "neutral-6");
 
+    // Add text
       densityHeading.textContent = letter.char.toUpperCase();
       densityNumber.textContent = letter.count;
       let percent = (letter.count / text.length) * 100;
@@ -160,18 +161,10 @@ textarea.addEventListener("keyup", () => {
   });
 
   // If textarea is empty, display message
-  if (letterDensities.firstChild) {
-    noCharacters.style.display = "none";
-  } else {
-    noCharacters.style.display = "block";
-  }
+  noCharacters.style.display = letterDensities.firstChild ? "none" : "block"
 
   // Displays/hides show more
-  if (letterDensities.children.length > 5) {
-    showMore.style.display = "block";
-  } else {
-    showMore.style.display = "none";
-  }
+  showMore.style.display = letterDensities.children.length > 5 ? "block" : "none"
 
   // Updates letter densities height if expanded
   if (showMoreText.textContent == "Show Less") {
