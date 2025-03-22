@@ -394,10 +394,10 @@ textarea:focus {
 .letter-densities {
   max-height: 8.5rem;
   overflow: hidden;
-  transition: max-height 2s;
+  transition: max-height 1s;
 }
 
-.letter-densities-visibility {
+.animate-letter-densities {
   max-height: 40rem;
 }
 
