@@ -10,6 +10,8 @@ let charLimit = document.querySelector(".jsCharLimit");
 let charLimitBtn = document.querySelector(".jsCharLimitBtn");
 let limit = document.querySelector(".jsLimit");
 let exceededLimit = document.querySelector(".jsExceededLimit");
+let letterDensities = document.querySelector(".jsLetterDensities");
+let noCharacters = document.querySelector(".jsNoCharacters");
 
 // Displays relative count numbers
 function displayCounts(unit, count) {
@@ -71,7 +73,94 @@ textarea.addEventListener("keyup", () => {
   isCharLimitReached();
 
   // Display letter densities
-  
+  // Letters and their initial count
+  const letters = [
+    { char: "a", count: 0 },
+    { char: "b", count: 0 },
+    { char: "c", count: 0 },
+    { char: "d", count: 0 },
+    { char: "e", count: 0 },
+    { char: "f", count: 0 },
+    { char: "g", count: 0 },
+    { char: "h", count: 0 },
+    { char: "i", count: 0 },
+    { char: "j", count: 0 },
+    { char: "k", count: 0 },
+    { char: "l", count: 0 },
+    { char: "m", count: 0 },
+    { char: "n", count: 0 },
+    { char: "o", count: 0 },
+    { char: "p", count: 0 },
+    { char: "q", count: 0 },
+    { char: "r", count: 0 },
+    { char: "s", count: 0 },
+    { char: "t", count: 0 },
+    { char: "u", count: 0 },
+    { char: "v", count: 0 },
+    { char: "w", count: 0 },
+    { char: "x", count: 0 },
+    { char: "y", count: 0 },
+    { char: "z", count: 0 },
+  ];
+
+  // Updates each letter count upon typing
+  letters.forEach((letter) => {
+    letter.count = text.toLowerCase().split(letter.char).length - 1;
+  });
+
+  // Resets letter densities to empty
+  while (letterDensities.firstChild) {
+    letterDensities.firstChild.remove();
+  }
+
+  // For each letter with a count, create and display the letter density element
+  letters.forEach((letter) => {
+    if (letter.count > 0) {
+      // Create elements
+      let letterDensity = document.createElement("div");
+      let densityHeading = document.createElement("h3");
+      let densityBar = document.createElement("div");
+      let densityBarFill = document.createElement("div");
+      let densityDetails = document.createElement("div");
+      let densityNumber = document.createElement("span");
+      let densityPercent = document.createElement("span");
+
+      // Add classes
+      letterDensity.classList.add("letter-density");
+      densityHeading.classList.add(
+        "tp-4",
+        "neutral-6",
+        "jsDensityHeading",
+        "density-heading"
+      );
+      densityBar.classList.add("density-bar", "neutral-2-bg");
+      densityBarFill.classList.add("density-bar-fill");
+      densityDetails.classList.add("neutral-4", "tp-6", "density-details");
+      densityNumber.classList.add("density-number", "tp-4", "neutral-6");
+      densityPercent.classList.add("density-number", "tp-4", "neutral-6");
+
+      densityHeading.textContent = letter.char.toUpperCase();
+      densityNumber.textContent = letter.count;
+      let percent = (letter.count / text.length) * 100;
+      densityPercent.textContent = Number.isInteger(percent)
+        ? `(${percent}%)`
+        : `(${percent.toFixed(2)}%)`;
+      densityBarFill.style.width = `${percent}%`;
+
+      // Append elements together
+      densityBar.appendChild(densityBarFill);
+      densityDetails.append(densityNumber, densityPercent);
+      letterDensity.append(densityHeading, densityBar, densityDetails);
+      letterDensities.appendChild(letterDensity);
+    }
+  });
+
+  // If textarea is empty, display message
+  if (letterDensities.firstChild) {
+    noCharacters.style.display = "none";
+  } else {
+    noCharacters.style.display = "block";
+  }
 });
 
 let excludeSpacesActive = false;

@@ -198,6 +198,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 62rem;
+  width: 100%;
+  padding-inline: 2rem;
 }
 
 header button {
@@ -346,33 +349,43 @@ textarea:focus {
 }
 
 /* Letter Density */
-.letter-densities h2 {
+.letter-density-section h2 {
   margin-bottom: 1.25rem;
 }
 
 .letter-density {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .density-bar {
-  width: 100%;
+  flex-grow: 1;
   height: 0.75rem;
   border-radius: 100rem;
   position: relative;
   overflow: hidden;
+  margin-right: 1rem;
 }
 
 .density-bar-fill {
   content: "";
   position: absolute;
   inset: 0;
-  width: 10rem;
   background: var(--purple-2);
   border-radius: 100rem;
 }
 
 .density-number {
   margin-right: 0.25rem;
+}
+
+.density-heading {
+  width: 2.5%;
+}
+
+.density-details {
+  width: 5rem;
+  text-align: right;
 }
