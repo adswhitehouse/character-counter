@@ -52,7 +52,7 @@ textarea.addEventListener("keyup", () => {
   // Display word count
   let words = text.trim().split(/\s+/).length;
   displayCounts(words, wordCount);
-  if (text.length === 0) {
+  if (text.length === 0 || text.trim() === "") {
     wordCount.textContent = "00";
   }
 
@@ -143,10 +143,11 @@ textarea.addEventListener("keyup", () => {
       densityNumber.classList.add("density-number", "tp-4", "neutral-6");
       densityPercent.classList.add("density-number", "tp-4", "neutral-6");
 
-    // Add text
+      // Add text
       densityHeading.textContent = letter.char.toUpperCase();
       densityNumber.textContent = letter.count;
-      let percent = (letter.count / text.length) * 100;
+      let letterOnlyLength = text.toLowerCase().replace(/[^a-z]/g, "").length;
+      let percent = (letter.count / letterOnlyLength) * 100;
       densityPercent.textContent = Number.isInteger(percent)
         ? `(${percent}%)`
         : `(${percent.toFixed(2)}%)`;
@@ -161,14 +162,22 @@ textarea.addEventListener("keyup", () => {
   });
 
   // If textarea is empty, display message
-  noCharacters.style.display = letterDensities.firstChild ? "none" : "block"
+  noCharacters.style.display = letterDensities.firstChild ? "none" : "block";
 
   // Displays/hides show more
-  showMore.style.display = letterDensities.children.length > 5 ? "block" : "none"
+  showMore.style.display =
+    letterDensities.children.length > 5 ? "block" : "none";
 
   // Updates letter densities height if expanded
   if (showMoreText.textContent == "Show Less") {
     letterDensities.style.maxHeight = letterDensities.scrollHeight + "px";
+  }
+
+  // If exclude spaces is active calculate text without spaces
+  if (excludeSpacesActive) {
+    let textNoSpaces = textarea.value.replace(/\s+/g, "");
+    totalCharacters.textContent = "Total Characters (no-space)";
+    displayCounts(textNoSpaces.length, characterCount);
   }
 });
 
@@ -200,7 +209,7 @@ excludeSpaces.addEventListener("click", () => {
   if (!excludeSpacesActive) {
     excludeSpacesActive = true;
     excludeSpaces.classList.add("setting-btn-active");
-    totalCharacters.textContent += " (no-space)";
+    totalCharacters.textContent = "Total Characters (no-space)";
     displayCounts(textNoSpaces.length, characterCount);
   } else {
     excludeSpacesActive = false;

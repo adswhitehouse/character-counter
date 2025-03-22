@@ -186,6 +186,14 @@ body {
   align-items: center;
 }
 
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url(./images/bg-dark-theme.png);
+  z-index: -1;
+}
+
 /* main */
 main {
   max-width: 62rem;
@@ -232,7 +240,7 @@ textarea {
   height: 12.5rem;
   outline: none;
   overflow: hidden;
-  margin-bottom: 3rem;
+  margin-bottom: 0.25rem;
 }
 
 textarea::placeholder {
@@ -383,7 +391,7 @@ textarea:focus {
 }
 
 .density-heading {
-  width: 2.5%;
+  width: 1.25rem;
 }
 
 .density-details {
@@ -412,4 +420,61 @@ textarea:focus {
 
 .rotate-chevron {
   transform: rotate(180deg);
+}
+
+/* Media Query */
+@media screen and (max-width: 45rem) {
+  /* Utility Classes */
+  .tp-1 {
+    font-size: var(--fs-1-mobile);
+  }
+
+  /* Body */
+  body {
+    padding-block: 1rem 2rem;
+  }
+
+  /* Header */
+  header {
+    padding-inline: 1rem;
+  }
+
+  header button {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  header button img {
+    width: 1.25rem;
+  }
+
+  .header-logo {
+    width: 11.5rem;
+  }
+
+  /* Main */
+  main {
+    padding-inline: 1rem;
+  }
+
+  /* Settings */
+  .settings {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .settings p {
+    margin-left: unset;
+  }
+
+  /* Count */
+  .count {
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: unset;
+  }
+
+  .count div img {
+    left: 82%;
+    height: 100%;
+  }
 }
