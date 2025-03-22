@@ -358,6 +358,7 @@ textarea:focus {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  margin-bottom: 0.25rem;
 }
 
 .density-bar {
@@ -388,4 +389,32 @@ textarea:focus {
 .density-details {
   width: 5rem;
   text-align: right;
+}
+
+.letter-densities {
+  max-height: 8.5rem;
+  overflow: hidden;
+  transition: max-height 2s;
+}
+
+.letter-densities-visibility {
+  max-height: 40rem;
+}
+
+.show-more {
+  display: none;
+  margin-top: 0.25rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.fa-chevron-down {
+  transition: transform 0.25s;
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+}
+
+.rotate-chevron {
+  transform: rotate(180deg);
 }

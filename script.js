@@ -12,6 +12,9 @@ let limit = document.querySelector(".jsLimit");
 let exceededLimit = document.querySelector(".jsExceededLimit");
 let letterDensities = document.querySelector(".jsLetterDensities");
 let noCharacters = document.querySelector(".jsNoCharacters");
+let showMore = document.querySelector(".jsShowMore");
+let showMoreText = document.querySelector(".jsShowMoreText")
+let chevronDown = document.querySelector(".jsChevronDown")
 
 // Displays relative count numbers
 function displayCounts(unit, count) {
@@ -130,12 +133,7 @@ textarea.addEventListener("keyup", () => {
 
       // Add classes
       letterDensity.classList.add("letter-density");
-      densityHeading.classList.add(
-        "tp-4",
-        "neutral-6",
-        "jsDensityHeading",
-        "density-heading"
-      );
+      densityHeading.classList.add("tp-4", "neutral-6", "density-heading");
       densityBar.classList.add("density-bar", "neutral-2-bg");
       densityBarFill.classList.add("density-bar-fill");
       densityDetails.classList.add("neutral-4", "tp-6", "density-details");
@@ -164,6 +162,28 @@ textarea.addEventListener("keyup", () => {
   } else {
     noCharacters.style.display = "block";
   }
+
+  // Displays show more is
+  if (letterDensities.children.length > 5) {
+    showMore.style.display = "block";
+  } else {
+    showMore.style.display = "none";
+  }
+
+  let isShowMoreToggled = false;
+  showMore.addEventListener("click", () => {
+    if (!isShowMoreToggled) {
+      isShowMoreToggled = true;
+      letterDensities.classList.add("letter-densities-visibility");
+      showMoreText.textContent = "Show Less"
+      chevronDown.classList.add("rotate-chevron")
+    } else {
+        isShowMoreToggled = false;
+      letterDensities.classList.remove("letter-densities-visibility");
+      showMoreText.textContent = "Show More"
+      chevronDown.classList.remove("rotate-chevron")
+    }
+  });
 });
 
 let excludeSpacesActive = false;
