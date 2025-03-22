@@ -108,6 +108,9 @@ textarea.addEventListener("keyup", () => {
     letter.count = text.toLowerCase().split(letter.char).length - 1;
   });
 
+  // Sorts letters array descending from highest count
+  letters.sort((a, b) => b.count - a.count);
+
   // Resets letter densities to empty
   while (letterDensities.firstChild) {
     letterDensities.firstChild.remove();
