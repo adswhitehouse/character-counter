@@ -397,13 +397,8 @@ textarea:focus {
   transition: max-height 1s;
 }
 
-.animate-letter-densities {
-  max-height: 40rem;
-}
-
 .show-more {
   display: none;
-  margin-top: 0.25rem;
   cursor: pointer;
   background-color: transparent;
   border: none;

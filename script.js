@@ -15,6 +15,9 @@ let noCharacters = document.querySelector(".jsNoCharacters");
 let showMore = document.querySelector(".jsShowMore");
 let showMoreText = document.querySelector(".jsShowMoreText");
 let chevronDown = document.querySelector(".jsChevronDown");
+let animateLetterDensities = document.querySelector(
+  ".animate-letter-densities"
+);
 
 // Displays relative count numbers
 function displayCounts(unit, count) {
@@ -163,11 +166,16 @@ textarea.addEventListener("keyup", () => {
     noCharacters.style.display = "block";
   }
 
-  // Displays show more is
+  // Displays/hides show more
   if (letterDensities.children.length > 5) {
     showMore.style.display = "block";
   } else {
     showMore.style.display = "none";
+  }
+
+  // Updates letter densities height if expanded
+  if (showMoreText.textContent == "Show Less") {
+    letterDensities.style.maxHeight = letterDensities.scrollHeight + "px";
   }
 });
 
@@ -176,12 +184,13 @@ let isShowMoreToggled = false;
 showMore.addEventListener("click", () => {
   if (!isShowMoreToggled) {
     isShowMoreToggled = true;
-    letterDensities.classList.add("animate-letter-densities");
+    animateLetterDensities.style.maxHeight =
+      letterDensities.scrollHeight + "px";
     showMoreText.textContent = "Show Less";
     chevronDown.classList.add("rotate-chevron");
   } else {
     isShowMoreToggled = false;
-    letterDensities.classList.remove("animate-letter-densities");
+    animateLetterDensities.style.maxHeight = "8.5rem";
     showMoreText.textContent = "Show More";
     chevronDown.classList.remove("rotate-chevron");
   }
